@@ -1,37 +1,39 @@
-let add = document.getElementById("addBtn");
-let sub = document.getElementById("subBtn");
-let mul = document.getElementById("mulBtn");
-let div = document.getElementById("divBtn");
-let display = document.getElementById("countLabel");
+// const clear = document.getElementById("clear");
+// const plusMinus = document.getElementById("plus-minus");
+// const percent = document.getElementById("percent");
+// const divide = document.getElementById("divide");
+// const seven = document.getElementById("seven");
+// const eight = document.getElementById("eight");
+// const nine = document.getElementById("nine");
+// const multiply = document.getElementById("multiply");
+// const four = document.getElementById("four");
+// const five = document.getElementById("five");
+// const six = document.getElementById("six");
+// const subtract = document.getElementById("subtract");
+// const one = document.getElementById("one");
+// const two = document.getElementById("two");
+// const three = document.getElementById("three");
+// const add = document.getElementById("add");
+// const zero = document.getElementById("zero");
+// const decimal = document.getElementById("decimal");
+// const equals = document.getElementById("equals");
+const display = document.getElementById("display");
 
-function getValues() {
-  const x = Number(document.getElementById("num1").value);
-  const y = Number(document.getElementById("num2").value);
-
-  return [x, y];
-}
-function addValues() {
-  const [x, y] = getValues();
-  display.textContent = x + y;
-}
-function subValues() {
-  const [x, y] = getValues();
-  display.textContent = x - y;
-}
-function mulValues() {
-  const [x, y] = getValues();
-  display.textContent = x * y;
-}
-function divValues() {
-  const [x, y] = getValues();
-  if (y == 0) {
-    window.alert("Cannot divide with 0");
-  } else {
-    display.textContent = x / y;
-  }
+function appendToDisplay(input) {
+  display.value += input;
 }
 
-add.onclick = addValues;
-sub.onclick = subValues;
-mul.onclick = mulValues;
-div.onclick = divValues;
+function clearDisplay() {
+  display.value = "";
+}
+
+
+function calculate() {
+    try {
+      display.value = eval(display.value);
+    }
+    catch (error) {
+        display.value = "Error"
+    }
+}
+

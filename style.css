@@ -1,42 +1,81 @@
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+:root{
+    --background-color:#000000;
+    --font-color:#ffffff;
+    --keypad-top: #979797;
+    --keypad-font-color-top: #ffffff;
+    --keypad-side-color: #da7619;
+    --keypad-main-color: rgb(71, 71, 71);
+    --shadow-color: #D3D3D3;
+}
 body{
-    width: 100%;
     height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
+.main{
+    width: 450px;
+    height: 680px;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+}
 .display{
-    width: 500px;
-    height: 150px;
+    width: 100%;
+    padding: 30px;
+    font-size: 65px;
+    text-align: left;
+    background-color: var(--keypad-main-color);
+    border: none;
+    color: var(--font-color);
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.keypad{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    padding: 20px;
+    gap: 10px;
+}
+.key{
+    border-radius: 100%;
+    padding: 22px;
+    font-size: 40px;
+    font-weight:500;
+    border: none;
+    background-color: var(--keypad-main-color);
+    color: var(--font-color);
+    
+}
+
+.key:hover{
+    background-color: #86868657;
+}
+
+.top{
+    background-color: var(--keypad-top);
+    color: var(--keypad-font-color-top);
+}
+.special{
+    grid-column: span 2;
+    padding-left: 40px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    
-    input{
-        padding: 5px;
-        width: 200px;
-        height: 100px;
-        font-size: 30px;
-    }
+}
+.side{
+    background-color: var(--keypad-side-color);
+}
 
-    #countLabel{
-        font-size: 70px;
-    }
-}
-.buttons{
-    padding: 20px 50px;
-    font-size: 50px;
-    background-color: aliceblue;
-    border: 2px solid black;
-    border-radius: 50px;
-    cursor: pointer;
-}
+
